@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Compromisso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Agendar Compromisso</h1>
+    <form method="POST">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" required>
+        <br>
+        <label for="time">Hora:</label>
+        <input type="time" name="time" required>
+        <br>
+        <label for="date">Data:</label>
+        <input type="date" name="date" required>
+        <br>
+        <label for="attendant">Atendente:</label>
+        <input type="text" name="attendant" required>
+        <br>
+        <button type="submit" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+            Agendar
+        </button>
+        <button type="button" onclick="window.location.href='/'">
+            Voltar
+        </button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Compromissos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Lista de Compromissos</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Hora</th>
+            <th>Data</th>
+            <th>Atendente</th>
+            <th>Ações</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.id }}</td>
+            <td>{{ appointment.name }}</td>
+            <td>{{ appointment.time }}</td>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.attendant }}</td>
+            <td>
+                <form id="delete-form-{{ appointment.id }}" action="{{ url_for('delete_appointment', id=appointment.id) }}" method="POST" style="display:none;">
+                    <button type="submit">Deletar</button>
+                </form>
+                <button onclick="document.getElementById('delete-form-{{ appointment.id }}').submit()" style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+                    Deletar
+                </button>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/"><button>Voltar</button></a>
+</body>
+</html>
