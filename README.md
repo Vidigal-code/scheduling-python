@@ -49,7 +49,7 @@ Para configurar o projeto Appointment Scheduler em sua máquina local, siga este
 ## Demo
 Veja o sistema em ação:
 
-![Demo of Appointment Scheduler](https://) 
+![Demo of Appointment Scheduler](https://github.com/Vidigal-code/scheduling-python/blob/main/example/Example.gif?raw=true) 
 
 ## Contributing
 Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou quiser adicionar recursos, sinta-se à vontade para enviar um pull request ou abrir uma issue no repositório do GitHub.
