@@ -27,37 +27,5 @@
             Voltar
         </button>
     </form>
-
-    <script>
-        function escapeHtml(unsafe) {
-            return unsafe
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "<")
-                .replace(/>/g, ">")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-
-            const name = document.getElementById('name').value;
-            const time = document.getElementById('time').value;
-            const date = document.getElementById('date').value;
-            const attendant = document.getElementById('attendant').value;
-
-            const safeName = escapeHtml(name);
-            const safeTime = escapeHtml(time);
-            const safeDate = escapeHtml(date);
-            const safeAttendant = escapeHtml(attendant);
-
-
-            console.log("Nome:", safeName);
-            console.log("Hora:", safeTime);
-            console.log("Data:", safeDate);
-            console.log("Atendente:", safeAttendant);
-
-        });
-    </script>
 </body>
 </html>
