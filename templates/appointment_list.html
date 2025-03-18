@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Lista de Compromissos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
 </head>
 <body>
     <h1>Lista de Compromissos</h1>
@@ -18,20 +19,20 @@
         </tr>
         {% for appointment in appointments %}
         <tr>
-            <td>{{ appointment.id }}</td>
-            <td>{{ appointment.name }}</td>
-            <td>{{ appointment.time }}</td>
-            <td>{{ appointment.date }}</td>
-            <td>{{ appointment.attendant }}</td>
+            <td>{{ appointment.id | e }}</td>
+            <td>{{ appointment.name | e }}</td>
+            <td>{{ appointment.time | e }}</td>
+            <td>{{ appointment.date | e }}</td>
+            <td>{{ appointment.attendant | e }}</td>
             <td>
                 <form id="delete-form-{{ appointment.id }}" action="{{ url_for('delete_appointment', id=appointment.id) }}" method="POST" style="display:none;">
                     <button type="submit">Deletar</button>
                 </form>
-                <button onclick="document.getElementById('delete-form-{{ appointment.id }}').submit()" style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+                <button onclick="document.getElementById('delete-form-{{ appointment.id }}').submit()" 
+                        style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
                     Deletar
                 </button>
             </td>
-            
         </tr>
         {% endfor %}
     </table>
