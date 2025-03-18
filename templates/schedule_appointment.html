@@ -7,18 +7,18 @@
 </head>
 <body>
     <h1>Agendar Compromisso</h1>
-    <form method="POST">
+    <form method="POST" id="appointmentForm">
         <label for="name">Nome:</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" id="name" required>
         <br>
         <label for="time">Hora:</label>
-        <input type="time" name="time" required>
+        <input type="time" name="time" id="time" required>
         <br>
         <label for="date">Data:</label>
-        <input type="date" name="date" required>
+        <input type="date" name="date" id="date" required>
         <br>
         <label for="attendant">Atendente:</label>
-        <input type="text" name="attendant" required>
+        <input type="text" name="attendant" id="attendant" required>
         <br>
         <button type="submit" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
             Agendar
@@ -27,6 +27,37 @@
             Voltar
         </button>
     </form>
-    
+
+    <script>
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "<")
+                .replace(/>/g, ">")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão
+
+            const name = document.getElementById('name').value;
+            const time = document.getElementById('time').value;
+            const date = document.getElementById('date').value;
+            const attendant = document.getElementById('attendant').value;
+
+            const safeName = escapeHtml(name);
+            const safeTime = escapeHtml(time);
+            const safeDate = escapeHtml(date);
+            const safeAttendant = escapeHtml(attendant);
+
+
+            console.log("Nome:", safeName);
+            console.log("Hora:", safeTime);
+            console.log("Data:", safeDate);
+            console.log("Atendente:", safeAttendant);
+
+        });
+    </script>
 </body>
 </html>
