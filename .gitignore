@@ -1,4 +1,4 @@
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
@@ -50,6 +50,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+venv
 
 .idea/
 .vscode/
@@ -79,4 +80,4 @@ celerybeat.pid
 
 .ipynb_checkpoints
 
-appointments.db
+instance/*.db
